@@ -1,12 +1,10 @@
 import { Navbar } from '@/components/layout/Navbar'
-import { getProjectById, getProjects } from '@/lib/sanity'
+import { getProjectById } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
-export async function generateStaticParams() {
-  const projects = await getProjects()
-  return projects.map((p: any) => ({ id: p.id }))
-}
+export const dynamic = 'force-dynamic'
+
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const p = await getProjectById(params.id)

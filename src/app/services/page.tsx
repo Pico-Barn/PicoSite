@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Navbar } from '@/components/layout/Navbar'
 import { getServices } from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = { title: 'Soluzioni' }
 
 const ICON_MAP: Record<string, string> = {

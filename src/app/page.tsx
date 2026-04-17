@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Navbar } from '@/components/layout/Navbar'
 import { getHighlightProjects, getServices } from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 const STATS = [
   { value: '6+',    label: 'Anni di R&D' },
   { value: '18',    label: 'Progetti consegnati' },

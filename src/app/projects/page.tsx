@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Navbar } from '@/components/layout/Navbar'
 import { getProjects } from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = { title: 'Progetti' }
 
 export default async function ProjectsPage() {

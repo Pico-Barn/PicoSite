@@ -2,6 +2,8 @@ import { Navbar } from '@/components/layout/Navbar'
 import { getTeam } from '@/lib/sanity'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = { title: 'Team' }
 
 export default async function TeamPage() {

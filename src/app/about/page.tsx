@@ -1,6 +1,8 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { getPartners } from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = { title: 'Chi siamo' }
 
 const VALUES = [
