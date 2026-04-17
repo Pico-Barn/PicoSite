@@ -1,16 +1,11 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-const isProtectedRoute = createRouteMatcher([
-  '/helpdesk/dashboard(.*)',
-  '/helpdesk/tickets(.*)',
-  '/helpdesk/kb(.*)',
-  '/helpdesk/downloads(.*)',
-  '/helpdesk/admin(.*)',
-])
-
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) auth().protect()
-})
+// Middleware temporaneamente disabilitato — Clerk non ancora configurato
+// Riabilitare dopo aver inserito le chiavi reali NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY e CLERK_SECRET_KEY
+export function middleware(req: NextRequest) {
+  return NextResponse.next()
+}
 
 export const config = {
   matcher: [
