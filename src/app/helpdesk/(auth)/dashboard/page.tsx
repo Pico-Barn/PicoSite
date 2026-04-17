@@ -5,7 +5,7 @@ import Link from 'next/link'
 export const metadata = { title: 'Helpdesk' }
 
 export default async function HelpdeskDashboard() {
-  const { userId } = await auth()
+  const { userId } = auth()
   if (!userId) redirect('/helpdesk/sign-in')
 
   const user = await currentUser()

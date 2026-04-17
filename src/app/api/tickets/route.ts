@@ -8,7 +8,7 @@ const supabase = createClient(
 )
 
 export async function GET() {
-  const { userId } = await auth()
+  const { userId } = auth()
   if (!userId) return NextResponse.json({ error: 'Non autorizzato' }, { status: 401 })
 
   const { data, error } = await supabase
@@ -22,21 +22,15 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { userId } = await auth()
+  const { userId } = auth()
   if (!userId) return NextResponse.json({ error: 'Non autorizzato' }, { status: 401 })
 
   const { title, description, priority = 'normal' } = await req.json()
-
-  if (!title || !description) {
+  if (!title || !description)
     return NextResponse.json({ error: 'Titolo e descrizione obbligatori' }, { status: 400 })
-  }
 
   const { data, error } = await supabase.from('tickets').insert({
-    clerk_user_id: userId,
-    title,
-    description,
-    priority,
-    status: 'open',
+    clerk_user_id: userId, title, description, priority, status: 'open',
   }).select().single()
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
